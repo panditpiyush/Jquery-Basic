@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Speciality-Master</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="styles/kendo.default.mobile.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.913/styles/kendo.default-ocean-blue.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script src="https://kendo.cdn.telerik.com/2022.3.913/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.913/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="grt-responsive-menu.css">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+</head>
+
+<style>
+    input:focus {
+        outline: none;
+    }
+
+    textarea:focus {
+        outline: none;
+    }
+
+    .offcanvas-body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    footer {
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+    }
+
+    .k-combobox .k-input-inner {
+        /* customize the style input */
+        border: 0;
+        border-bottom: 1px solid rgb(247, 58, 58);
+    }
+
+    .effect-3+.border {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%) scale(0);
+        width: 100%;
+        /* height: 2px; */
+        transition: 0.5s;
+    }
+
+    .effect-3:focus+.border {
+        transform: translateX(-50%) scale(1);
+    }
+
+    .overflow {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+</style>
+
+<body>
+    <!-- Creating Header Section  -->
+    <div class="container-fluid bg-light">
+        <div class="row justify-content-between">
+            <div class="col ">
+
+                <!-- Buttom for Off-canvas -->
+                <div class="fa-stack float-start ms-2 me-3 mb-3">
+                    <i class="fa fa-circle-thin fa-stack-2x" style="color: rgb(192, 192, 192); font-size:45px;"> </i>
+                    <i class="fa fa-bars fa-stack-1x mt-2 ms-1" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"
+                        style="color:rgb(161, 161, 161); font-size:18px;"></i>
+                </div>
+
+                <!-- Code for Off-canvas -->
+                <div class="offcanvas offcanvas-start text-white data-bs-scroll=" true"
+                    data-bs-backdrop="false"" tabindex=" -1" id="offcanvasExample"
+                    style="margin-top: 87px; background-color:rgb(34, 94, 146) ;"
+                    aria-labelledby="offcanvasExampleLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasExampleLabel">MyCare Home</h5>
+                        <button type="button" class="btn-close btn-light shadow-none" data-bs-dismiss="offcanvas"><i
+                                class="fa fa-times text-white" aria-hidden="true"
+                                style="font-size: 23px;;"></i></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Doctor Master</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Speciality Master Master</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Admin</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Bill Status</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Patient Registration</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Refund Status</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Info Patients</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>OP Details</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Exit Details</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Payment Status</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Medical requirement</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>In-Patients</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Out-Patients</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Day-Patients</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Emgernecy Patients</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Vacancy Master</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Day History</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Out History</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Payment Required</h6>
+                            <hr>
+                            <i class="fa fa-folder float-start me-2 text-white" style="font-size:20px;"
+                                aria-hidden="true">
+                            </i>
+                            <h6>Patient Bills</h6>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mycare Heading -->
+                <div>
+                    <h5 class="m-2" style="color: rgb(133, 132, 132);">MyCare x - Dev</h5>
+                </div>
+            </div>
+
+            <!-- Code for multiple Icons -->
+            <div class="col">
+                <div class="float-end">
+                    <div class="fa-stack float-start ms-2 me-3 mb-3">
+                        <i class="fa fa-circle-thin fa-stack-2x" style="color: rgb(192, 192, 192); font-size:45px;"></i>
+                        <i class="fa fa-expand fa-stack-1x p-2 ms-1"
+                            style="color:rgb(136, 136, 136); font-size:20px;"></i>
+                    </div>
+                    <div class="fa-stack float-start ms-2 me-3 mb-3">
+                        <i class="fa fa-circle-thin fa-stack-2x" style="color: rgb(192, 192, 192); font-size:45px;"></i>
+                        <i class="fa fa-comments fa-stack-1x p-1 ms-1"
+                            style="color:rgb(136, 136, 136); font-size:20px;"></i>
+                    </div>
+                    <div class="fa-stack float-start ms-2 me-3 mb-3">
+                        <i class="fa fa-circle-thin fa-stack-2x" style="color: rgb(192, 192, 192); font-size:45px;"></i>
+                        <i class="fa fa-envelope fa-stack-1x p-1 m-1"
+                            style="color:rgb(136, 136, 136); font-size:19px;"></i>
+                    </div>
+                    <div class="fa-stack float-start ms-2 me-3 mb-3">
+                        <i class="fa fa-circle-thin fa-stack-2x" style="color: rgb(192, 192, 192); font-size:45px;"></i>
+                        <i class="fa fa-bell fa-stack-1x p-1 m-1" style="color:rgb(136, 136, 136); font-size:19px;"></i>
+                    </div>
+                    <div class="fa-stack float-start ms-2 me-3 mb-3">
+                        <i class="fa fa-circle-thin fa-stack-2x" style="color: rgb(192, 192, 192); font-size:45px;"></i>
+                        <i class="fa fa-user-circle fa-stack-1x  p-1 "
+                            style="color:rgb(136, 136, 136); font-size:31px; margin-top: 3px;">
+                        </i>
+                    </div>
+                    <div class="dropdown float-end mt-2">
+                        <button class="btn btn-light dropdown-toggle p-0 " type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <span class="fw-semibold">Admin</span> as Admin
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container for breadcrumb -->
+    <div class="container-fluid">
+        <div class="row" style="background-color: rgb(34, 94, 146); height: 39px;">
+            <div class="col">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" data-toggle="tooltip" title="Home"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-house-door-fill text-white mt-2" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
+                                </svg></i></a></li>
+                        <li class="breadcrumb-item active text-white mt-2" aria-current="page" data-toggle="tooltip"
+                            title="Op Bill">Speciality Master</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col">
+                <div class="float-end">
+                    <span class="text-white mt-2 me-2"> Multi Facility Selected! </span>
+                    <i class="fa fa-newspaper-o border border-2  rounded-circle p-1 mt-2" aria-hidden="true"
+                        style="color:rgb(236, 236, 236); font-size:15px;">
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Creating row and dividing into two column -->
+    <div class="row g-3" style="margin-top: -6px;">
+        <div class="col-9 ms-1" id="SpecialityCol">
+
+            <!-- Creating Speciality-Master Container -->
+            <div class="container-fluid shadow-lg" style="height: 850px;">
+                <div class="row">
+                    <div class="col-2" style="background-color: rgb(34, 94, 146);">
+                        <i class="fa fa-empire float-start text-white mt-2" style="font-size:20px;"
+                            aria-hidden="true"></i>
+                        <lead class="text-white fw-semibold ms-2" style="font-size:19px;">Speciality Master</lead>
+                    </div>
+                    <div class="col" id="UpdateBtn">
+                        <i class="fa fa-times-circle text-danger float-end p-1" style="font-size:27px;"
+                            aria-hidden=" true">
+                        </i>
+                        <i class="fa fa-floppy-o text-success float-end me-3 p-1" style="font-size:25px;"
+                            aria-hidden="true" id="SaveMode"></i>
+                    </div>
+                    <hr>
+                </div>
+
+                <!-- Creating row for Input details -->
+                <div class="row" id="SpecialityValue">
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="col">
+                                <label style="opacity: 0.8;">Level Number</label><br>
+                                <input id="levelNumber" class="shadow-none" data-bind="value:levelnumber"
+                                    style="width: 420px;">
+                            </div>
+                            <div class="col">
+                                <label style="opacity: 0.8;">Parent Name</label><br>
+                                <input type="text" id="ParentName" class="shadow-none" data-bind="value:ParentName"
+                                    style="width: 460px;">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <div class="input-group">
+                                    <label class="" style="opacity: 0.8;">Doctor Speciality Code</label><br>
+                                    <input type="text" id="SpecialityCode"
+                                        class="effect-3 mt-1 border-0 border-bottom border-danger "
+                                        data-bind="value:SpecialityCode" style="width:100%;" placeholder="" />
+                                    <span class="border border-success"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <div class="input-group">
+                                    <label class="" style="opacity: 0.8;">Doctor Speciality Name</label><br>
+                                    <input type="text" name="" id="SpecialityName"
+                                        class="effect-3 mt-1 border-0 border-bottom border-danger "
+                                        data-bind="value:SpecialityName" style="width:100%;" placeholder="" />
+                                    <span class="border border-success"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <div class="input-group">
+                                    <label class="" style="opacity: 0.8;">Doctor Speciality Name (Local)</label><br>
+                                    <input type="text" name="" id="SpecialityNameLocal"
+                                        class="effect-3 mt-1 border-0 border-bottom border-danger "
+                                        data-bind="value:NameLocal" style="width:100%;" placeholder="" />
+                                    <span class="border border-success"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <lead>Last Level</lead>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="btn-group btn-group-sm me-2" role="group" aria-label="First group">
+                                        <button type="button" id="Yes"
+                                            class="btn btn-secondary rounded-0 shadow-none">Yes</button>
+                                        <button type="button" id="No"
+                                            class="btn btn-primary rounded-0 shadow-none">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <div class="input-group">
+                                    <label class="" style="opacity: 0.8;">Remarks</label><br>
+                                    <textarea class="effect-3  mt-1 border-0 border-bottom shadow-none " name="text"
+                                        style="width:100%;" rows="2" id="comment" data-bind="value:Remarks">
+                                    </textarea>
+                                    <span class="border border-success"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Creating the another coloum for tree and search -->
+        <div class="col me-1">
+            <div class="container-fluid shadow-lg">
+                <div class="row" style="background-color: rgb(167, 167, 167);">
+                    <div class="col text-white">
+                        <h5>Speciality</h5>
+                    </div>
+                    <div class="col text-white">
+                        <i class="fa fa-angle-double-right float-end" style="font-size:30px;" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="row " style="background-color: rgb(214, 214, 214);">
+                    <div class="col m-1">
+                        <!-- Actual search box -->
+                        <input type="text" id="SearchJStree" placeholder="Search Patients" class="border-0 rounded"
+                            style="width: 300px;">
+                    </div>
+                    <div class="col m-1">
+                        <i class="fa fa-expand float-end" aria-hidden="true" style="font-size:22px; opacity: 0.6;"></i>
+                        <i class="fa fa-refresh float-end me-2" aria-hidden="true" id="RefreshTree"
+                            style="font-size:22px; opacity: 0.6 ;"></i>
+                    </div>
+                </div>
+                <div class="row" style="background-color: rgb(243, 247, 243);">
+                    <div class="overflow">
+                        <div class="col mt-3" style="height: 760px;">
+                            <div class="ms-4 mt-4" style="font-size: 14px;" id="treeview"></div>
+                            <div id="show"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Creating Footer for IQVIA -->
+        <footer class="shadow-lg bg-white">
+            <div class="footer-copyright text-center p-2">© 2022 Copyright:
+                <img src="iqvia.png" height="25" width="150">
+            </div>
+        </footer>
+
+        <script src="../PRODUCTION-PROJECT/SPECIALITY-MASTER1-JS.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
