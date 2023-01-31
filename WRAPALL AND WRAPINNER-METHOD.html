@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1 class="text-center mb-4">J-Query WrapAll and wrapinner Method </h1>
+    <div class="container">
+        <div class="row">
+            <div class="col border border-2" id="test1" style="background:lightgreen">
+                <h2>Test-Box 1</h2>
+                <p>JavaScript, often abbreviated JS, is a programming language that is one of the core technologies of
+                    the World Wide Web,
+                    alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage
+                    behavior,
+                    often incorporating third-party libraries.
+                </p>
+                <p>Hello I am Wrap Inner Text</p>
+                <button id="wrapbutton" class="mb-3">wrapall</button>
+                <button id="wrapinner" class="mb-3">wrap inner</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#wrapbutton').click(function () {
+                //wrap-all method
+                $('#test1 p').wrapAll('<div id="paragraph" class="bg-danger"></div>');
+                console.log('wrap all is working');
+            })
+
+            $('#wrapinner').click(function () {
+                //Wrap-Inner Method
+                console.log('wrap inner is working');
+                var a = $('#test1 p:nth-child(3)');
+                console.log(a);
+                $('#test1 p:nth-child(3)').wrapInner('<b></b>');
+            })
+        })
+    </script>
+</body>
+
+</html>

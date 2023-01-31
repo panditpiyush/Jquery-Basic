@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1 class="text-center mb-4">J-Query On Method</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col border border-2" id="test1">
+                <h2>Test-Box 1</h2>
+                <p>JavaScript, often abbreviated JS, is a programming language that is one of the core technologies of
+                    the World Wide Web,
+                    alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage
+                    behavior,
+                    often incorporating third-party libraries.</p>
+            </div>
+        </div>
+        <br>
+        <button id="onevent">ON- EVENT</button>
+        <button id="offevent">OFF EVENT</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            //Creating click event for button
+            $('#onevent').click(function () {
+                //Creating ON-Event in id=test1
+                $('#test1').on(
+                    {
+                        "click": function () {
+                            $(this).css('background', 'green');
+                            console.log('Click event is working');
+                        },
+                        "mouseenter": function () {
+                            $(this).css('background', 'red');
+                            console.log('mouse event is working');
+                        },
+                        "mouseleave": function () {
+                            $(this).css('background', 'tan');
+                            console.log('mouseleave event is working');
+                        }
+                    }
+                )
+                console.log('ON-EVENT IS WORKING');
+            })
+
+            $('#offevent').click(function () {
+                $('#test1').off('click , mouseenter , mouseleave')
+                $('#test1').css('background', 'white');
+                console.log('OFF-EVENT IS WORKING');
+            })
+        })
+    </script>
+</body>
+
+</html>

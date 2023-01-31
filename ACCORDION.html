@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<style>
+    body {
+        height: calc(100% - 20px);
+        width: calc(100% - 20px);
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        background: #f2f2f2;
+        color: rgba(0, 0, 0, .87);
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .accordion {
+        margin: auto;
+        width: 500px;
+    }
+
+    .accordion input {
+        display: none;
+    }
+
+    .box {
+        position: relative;
+        background: white;
+        height: 64px;
+        transition: all .15s ease-in-out;
+    }
+
+    .box::before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        /* box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24); */
+    }
+
+    header.box {
+        background: #00BCD4;
+        z-index: 100;
+        cursor: initial;
+        /* box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px -2px rgba(0, 0, 0, .12), 0 2px 4px -4px rgba(0, 0, 0, .24); */
+    }
+
+    header .box-title {
+        margin: 0;
+        font-weight: normal;
+        font-size: 16pt;
+        color: white;
+        cursor: initial;
+    }
+
+    .box-title {
+        width: calc(100% - 40px);
+        height: 64px;
+        line-height: 64px;
+        padding: 0 20px;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .box-content {
+        width: calc(100% - 40px);
+        padding: 30px 20px;
+        font-size: 11pt;
+        color: rgba(0, 0, 0, .54);
+        display: none;
+    }
+
+    .box-close {
+        position: absolute;
+        height: 64px;
+        width: 100%;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        display: none;
+    }
+
+    input:checked+.box {
+        height: auto;
+        /* margin: 16px 0; */
+        /* box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32); */
+    }
+
+    /* input:checked+.box .box-title {
+        border-bottom: 1px solid rgba(0, 0, 0, .18);
+    } */
+
+    input:checked+.box .box-content,
+    input:checked+.box .box-close {
+        display: inline-block;
+    }
+
+    .arrows section .box-title {
+        padding-left: 44px;
+        width: calc(100% - 64px);
+    }
+
+    .arrows section .box-title:before {
+        position: absolute;
+        display: block;
+        content: '\203a';
+        font-size: 18pt;
+        left: 20px;
+        top: -2px;
+        transition: transform .15s ease-in-out;
+        color: rgba(0, 0, 0, .54);
+    }
+
+    input:checked+section.box .box-title:before {
+        transform: rotate(90deg);
+    }
+</style>
+
+<body>
+
+    <nav class="accordion arrows">
+        <header class="box">
+            <label for="acc-close" class="box-title">Accordion menu</label>
+        </header>
+        <input type="radio" name="accordion" id="cb1" />
+        <section class="box">
+            <label class="box-title" for="cb1">Readme</label>
+            <label class="box-close" for="acc-close"></label>
+            <div class="box-content">Click on an item to open. Click on its header or the list header to close.</div>
+        </section>
+        <input type="radio" name="accordion" id="cb2" />
+        <section class="box">
+            <label class="box-title" for="cb2">Read me too</label>
+            <label class="box-close" for="acc-close"></label>
+            <div class="box-content">Add the class 'arrows' to nav.accordion to add dropdown arrows.</div>
+        </section>
+        <input type="radio" name="accordion" id="cb3" />
+        <section class="box">
+            <label class="box-title" for="cb3">Item 3</label>
+            <label class="box-close" for="acc-close"></label>
+            <div class="box-content">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                Curae; Quisque finibus tristique nisi, maximus ullamcorper ante finibus eget.</div>
+        </section>
+
+        <input type="radio" name="accordion" id="acc-close" />
+    </nav>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
