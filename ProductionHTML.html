@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<style>
+  input:focus {
+    outline: none;
+  }
+</style>
+
+<body>
+  <div class="container border border-3 mt-5">
+    <div class="row mt-5 m-3 border border-2 justify-content-between">
+      <div class="col m-3" id="col-id">
+        <label> Item ID</label><br>
+        <input type="text" class="border-0 border-bottom" id="ItemId" placeholder="Enter Item ID">
+      </div>
+      <div class="col m-3">
+        <label> Item Code</label><br>
+        <input type="text" class="border-0 border-bottom" id="ItemCode" placeholder="Enter Item Code">
+      </div>
+      <div class="col m-3">
+        <label> Item Name</label><br>
+        <input type="text" class="border-0 border-bottom" id="ItemName" placeholder="Enter Item Name">
+      </div>
+      <div class="col m-3">
+        <label> Item Price</label><br>
+        <input type="text" class="border-0 border-bottom" id="ItemPrice" placeholder="Enter Item Price">
+      </div>
+      <div class="col-6" id="btn-col">
+        <button class="btn btn-danger mb-2 ms-3 h-75 w-25" id="saveItem" onclick="saveItem()">Save Item</button>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Item ID</th>
+              <th scope="col">Item Code</th>
+              <th scope="col">Item Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Delete</th>
+              <th scope="col">Update</th>
+            </tr>
+          </thead>
+          <tbody id="tablebody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p id="display"></p>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      getItemData();
+    })
+
+    function getItemData() {
+      $.getJSON('http://localhost:5078/api/Item', function (responseData) {
+        console.log(responseData);
+        $.each(responseData, function (key, value) {
+          $('#tablebody').append("<tr>"
+            + "<td>" + value.itemId + "</td>"
+            + "<td>" + value.itemCode + "</td>"
+            + "<td>" + value.itemName + "</td>"
+            + "<td>" + value.price + "</td>"
+            + `<td> <button class='btn btn-primary' id='btn-Delete' onclick=DeleteItem(${value.itemId})> Delete </button> </td>`
+            + "<td> <button class='btn btn-success' onclick=EditItem()> Edit</button> </td>"
+            + "</tr>");
+        })
+      })
+    }
+
+    //Function to save 
+    function saveItem() {
+      var obj = {
+        "itemId": document.getElementById("ItemId").value,
+        "itemName": $("#ItemName").val(),
+        "price": $("#ItemPrice").val(),
+        "itemCode": $("#ItemCode").val()
+      }
+
+      //Using Ajax for POST
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:5078/api/Item",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(obj),
+        success: function () {
+          alert("Information Inserted Transaction Completed");
+          $("#ItemId").val('');
+          $("#ItemName").val('');
+          $("#ItemPrice").val('');
+          $("#ItemCode").val('');
+          $('#tablebody').empty();
+          getItemData();
+        }
+      })
+    }
+
+    //Function to update Information 
+    //   api/Item?ItemName={ItemName}&ItemId={ItemId}&ItemCode={ItemCode}&Price={Price}
+    function EditItem() {
+      $('#tablebody tr').click(function () {
+        $('#UpdateItem').remove()
+
+        var id = $(this).children("td").eq(0).html();
+        $("#ItemId").val(id);
+        document.getElementById("ItemId").disabled = 'true'; //Disabled input box
+        // $('#ItemId').addClass("bg-white");
+        console.log(id)
+
+        var code = $(this).find("td").eq(1).html();
+        $("#ItemCode").val(code);
+        console.log(code)
+
+        var Name = $(this).find("td").eq(2).html();
+        $("#ItemName").val(Name);
+        console.log(Name)
+
+        var price = $(this).find("td").eq(3).html();
+        $("#ItemPrice").val(price);
+        console.log(price);
+
+        $('#saveItem').hide()
+        $('#btn-col').append('<button class="btn btn-danger mb-2 ms-3 h-75 w-25" id="UpdateItem" onclick="UpdateItem()">Update Item</button>')
+      })
+
+      // var a = $('#tablebody').find().val(itemId);
+      // console.log(a)
+      // var b = $('#tablebody').find().val(temCode);
+      // console.log(b)
+      // var c = $('#tablebody').find().val(itemName);
+      // console.log(c)
+      // var d = $('#tablebody').find().val(price);
+      // console.log(d)
+
+      // $("#ItemId").val(a);
+      // $("#ItemName").val(c);
+      // $("#ItemPrice").val(d);
+      // $("#ItemCode").val(b);
+    }
+
+    function UpdateItem() {
+      var ItemId = $("#ItemId").val();
+      var ItemCode = $("#ItemCode").val()
+      var ItemName = $("#ItemName").val();
+      var ItemPrice = $("#ItemPrice").val();
+      //Using Ajax for PUT
+      $.ajax({
+        type: "PUT",
+        url: "http://localhost:5078/api/Item?ItemName=" + ItemName + "&ItemId=" + ItemId + "&ItemCode=" + ItemCode + "&Price=" + ItemPrice + "",
+        success: function () {
+          alert("Transaction Updated Successfully");
+          $('#tablebody').empty();
+          getItemData()
+          $('#saveItem').show()
+          $("#ItemId").val('');
+          $("#ItemName").val('');
+          $("#ItemPrice").val('');
+          $("#ItemCode").val('');
+          $('#UpdateItem').remove()
+          // $('#ItemId').remove()
+          // $('#col-id').append('<input type="text" class="border-0 border-bottom" id="ItemId" placeholder="Enter Item ID">');
+          document.getElementById("ItemId").disabled = ''; //Disabled input box
+
+        }
+      })
+    }
+
+    //Function to delete the Item 
+    function DeleteItem(id) {
+      $.ajax(
+        {
+          url: "http://localhost:5078/api/Item?ItemId=" + id,
+          datatype: "json",
+          type: "DELETE",
+          success: function () {
+            alert('Information of Item Deleted Successfully');
+            $('#tablebody').empty();
+            getItemData();
+          }
+        }
+      )
+    }
+
+  </script>
+</body>
+
+</html>
